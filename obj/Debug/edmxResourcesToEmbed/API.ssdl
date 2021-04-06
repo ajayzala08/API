@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ATS2019_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appraisal_Master">
+    <Key>
+      <PropertyRef Name="paId" />
+    </Key>
+    <Property Name="paId" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empCode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="rm_empCode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="period" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="createdon" Type="datetime" Nullable="false" />
+    <Property Name="expiredon" Type="datetime" Nullable="false" />
+    <Property Name="emp_status" Type="varchar" MaxLength="20" />
+    <Property Name="emp_date" Type="datetime" />
+    <Property Name="rm_status" Type="varchar" MaxLength="20" />
+    <Property Name="rm_date" Type="datetime" />
+  </EntityType>
   <EntityType Name="Arche_Resume_Master">
     <Key>
       <PropertyRef Name="AR_Id" />
@@ -64,6 +79,22 @@
     <Property Name="DT_Target" Type="int" Nullable="false" />
     <Property Name="DT_Achived" Type="int" Nullable="false" />
     <Property Name="DT_CreateOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Employee_Review_Master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="qualityofworkntaskcompletion" Type="int" />
+    <Property Name="goalsntargetachievement" Type="int" />
+    <Property Name="writtennverbalcommunicationskills" Type="int" />
+    <Property Name="initiativenmotivation" Type="int" />
+    <Property Name="teamworknleadershipskills" Type="int" />
+    <Property Name="abilitytoproblemsolve" Type="int" />
+    <Property Name="attendancenregualrization" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="comment" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="HolidayList_Master">
     <Key>
@@ -184,6 +215,14 @@
     <Property Name="O_Admin_Status" Type="nvarchar" MaxLength="10" />
     <Property Name="O_Admin_Date" Type="datetime" />
     <Property Name="O_IsActive" Type="int" />
+  </EntityType>
+  <EntityType Name="PasswordExpiry_Master">
+    <Key>
+      <PropertyRef Name="Employeecode" />
+    </Key>
+    <Property Name="Employeecode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpirtyDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Recruiter_SalarySlip_Master">
     <Key>
@@ -348,6 +387,22 @@
     <Property Name="Salary_Month" Type="nvarchar" MaxLength="50" />
     <Property Name="Salary_Year" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="RM_Review_Master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="qualityofworkntaskcompletion" Type="int" />
+    <Property Name="goalsntargetachievement" Type="int" />
+    <Property Name="writtennverbalcommunicationskills" Type="int" />
+    <Property Name="initiativenmotivation" Type="int" />
+    <Property Name="teamworknleadershipskills" Type="int" />
+    <Property Name="abilitytoproblemsolve" Type="int" />
+    <Property Name="attendancenregualrization" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="comment" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Role_Master">
     <Key>
       <PropertyRef Name="R_id" />
@@ -496,21 +551,29 @@
     <Property Name="E_Created_On" Type="datetime" />
     <Property Name="E_Updated_By" Type="nvarchar" MaxLength="1000" />
     <Property Name="E_Updated_On" Type="datetime" />
+    <Property Name="E_ReportingManager" Type="varchar(max)" />
+    <Property Name="E_AttritionType" Type="varchar" MaxLength="500" />
+    <Property Name="E_Reason" Type="varchar" MaxLength="500" />
+    <Property Name="E_PersonalMailId" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityContainer Name="ATS2019_dbModelStoreContainer">
+    <EntitySet Name="Appraisal_Master" EntityType="Self.Appraisal_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client_Master" EntityType="Self.Client_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_Review_Master" EntityType="Self.Employee_Review_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordExpiry_Master" EntityType="Self.PasswordExpiry_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RM_Review_Master" EntityType="Self.RM_Review_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role_Master" EntityType="Self.Role_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" Schema="dbo" store:Type="Tables" />

@@ -185,6 +185,14 @@
     <Property Name="O_Admin_Date" Type="datetime" />
     <Property Name="O_IsActive" Type="int" />
   </EntityType>
+  <EntityType Name="PasswordExpiry_Master">
+    <Key>
+      <PropertyRef Name="Employeecode" />
+    </Key>
+    <Property Name="Employeecode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+    <Property Name="ExpirtyDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Recruiter_SalarySlip_Master">
     <Key>
       <PropertyRef Name="Salary_Id" />
@@ -496,6 +504,10 @@
     <Property Name="E_Created_On" Type="datetime" />
     <Property Name="E_Updated_By" Type="nvarchar" MaxLength="1000" />
     <Property Name="E_Updated_On" Type="datetime" />
+    <Property Name="E_ReportingManager" Type="varchar(max)" />
+    <Property Name="E_AttritionType" Type="varchar" MaxLength="500" />
+    <Property Name="E_Reason" Type="varchar" MaxLength="500" />
+    <Property Name="E_PersonalMailId" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityContainer Name="ATS2019_dbModelStoreContainer">
     <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" Schema="dbo" store:Type="Tables" />
@@ -507,6 +519,7 @@
     <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordExpiry_Master" EntityType="Self.PasswordExpiry_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" Schema="dbo" store:Type="Tables" />

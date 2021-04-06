@@ -46,5 +46,9 @@ namespace ATSAPI
         public virtual DbSet<Team_Master> Team_Master { get; set; }
         public virtual DbSet<User_Activity_Master> User_Activity_Master { get; set; }
         public virtual DbSet<User_Master> User_Master { get; set; }
+        public virtual DbSet<PasswordExpiry_Master> PasswordExpiry_Master { get; set; }
+        public virtual DbSet<Appraisal_Master> Appraisal_Master { get; set; }
+        public virtual DbSet<Employee_Review_Master> Employee_Review_Master { get; set; }
+        public virtual DbSet<RM_Review_Master> RM_Review_Master { get; set; }
     }
 }

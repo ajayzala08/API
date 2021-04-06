@@ -8,7 +8,7 @@ namespace ATSAPI.Models
     public class Changepasswordmodel
     {
         public string username { get; set; }
-        public string opwd { get; set; }
-        public string npwd { get; set; }
+        public string oldpwd { get; set; }
+        public string newpwd { get; set; }
     }
 }

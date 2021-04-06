@@ -60,10 +60,13 @@ namespace ATSAPI.Models
         public Boolean EPFApply { get; set; }
         public Boolean EPTApply { get; set; }
         public Boolean EESIApply { get; set; }
-
         public string Ephoto { get; set; }
         public int eactive { get; set; }
         public int edelete { get; set; }
-
+        public string username { get; set; }
+        public string reportingmanager { get; set; }
+        public string attritiontype { get; set; }
+        public string reson { get; set; }
+        public string personalmailid { get; set; }
     }
 }

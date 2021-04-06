@@ -58,5 +58,9 @@ namespace ATSAPI
         public Nullable<System.DateTime> E_Created_On { get; set; }
         public string E_Updated_By { get; set; }
         public Nullable<System.DateTime> E_Updated_On { get; set; }
+        public string E_ReportingManager { get; set; }
+        public string E_AttritionType { get; set; }
+        public string E_Reason { get; set; }
+        public string E_PersonalMailId { get; set; }
     }
 }

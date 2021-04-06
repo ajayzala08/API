@@ -9,6 +9,5 @@ namespace ATSAPI.Models
     {
         public decimal jid { get; set; }
         public string username { get; set; }
-        public HttpPostedFile httpPostedFile { get; set; }
     }
 }

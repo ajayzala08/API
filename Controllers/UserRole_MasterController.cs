@@ -133,5 +133,43 @@ namespace ATSAPI.Controllers
                 return responseModel;
             }
         }
+
+        public ResponseModel GetUserRole_Master(decimal id)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                using (var db = new ATS2019_dbEntities())
+                {
+                    List<UserRoleViewModel> userroles = (from c in db.Role_Master where c.R_ecode==id join d in db.User_Master on c.R_ecode equals d.E_Code select new { c, d }).Select(x => new UserRoleViewModel
+                    {
+                        id = x.c.R_id,
+                        username = x.d.E_Fullname,
+                        role = x.c.R_role
+                    }).ToList();
+                    if (userroles.Count > 0)
+                    {
+                        responseModel.Message = "Data Found";
+                        responseModel.Status = true;
+                        responseModel.Data = userroles;
+                    }
+                    else
+                    {
+                        responseModel.Message = "Data Not Found";
+                        responseModel.Status = false;
+                        responseModel.Data = null;
+                    }
+                }
+                
+                return responseModel;
+            }
+            catch (Exception ex)
+            {
+                responseModel.Message = "Exception";
+                responseModel.Data = null;
+                responseModel.Status = true;
+                return responseModel;
+            }
+        }
     }
 }

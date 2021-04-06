@@ -116,3 +116,4 @@ E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csproj.CoreCompileInputs.cache
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csproj.CopyComplete
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.dll
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.pdb
+E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csprojAssemblyReference.cache

@@ -472,50 +472,113 @@
     <EntitySetMapping Name="User_Master">
       <EntityTypeMapping TypeName="ATS2019_dbModel.User_Master">
         <MappingFragment StoreEntitySet="User_Master">
-          <ScalarProperty Name="E_Id" ColumnName="E_Id" />
-          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
-          <ScalarProperty Name="E_Fullname" ColumnName="E_Fullname" />
-          <ScalarProperty Name="E_Gender" ColumnName="E_Gender" />
-          <ScalarProperty Name="E_Email" ColumnName="E_Email" />
-          <ScalarProperty Name="E_DOB" ColumnName="E_DOB" />
-          <ScalarProperty Name="E_ContNo" ColumnName="E_ContNo" />
-          <ScalarProperty Name="E_EEmergencyContNo" ColumnName="E_EEmergencyContNo" />
-          <ScalarProperty Name="E_UserName" ColumnName="E_UserName" />
-          <ScalarProperty Name="E_Password" ColumnName="E_Password" />
-          <ScalarProperty Name="E_Address" ColumnName="E_Address" />
-          <ScalarProperty Name="E_CAddress" ColumnName="E_CAddress" />
-          <ScalarProperty Name="E_Postal" ColumnName="E_Postal" />
-          <ScalarProperty Name="E_Etype" ColumnName="E_Etype" />
-          <ScalarProperty Name="E_Company_Name" ColumnName="E_Company_Name" />
-          <ScalarProperty Name="E_Department" ColumnName="E_Department" />
-          <ScalarProperty Name="E_Designation" ColumnName="E_Designation" />
-          <ScalarProperty Name="E_Location" ColumnName="E_Location" />
-          <ScalarProperty Name="E_OfferDate" ColumnName="E_OfferDate" />
-          <ScalarProperty Name="E_JoinDate" ColumnName="E_JoinDate" />
-          <ScalarProperty Name="E_ExitDate" ColumnName="E_ExitDate" />
-          <ScalarProperty Name="E_Role" ColumnName="E_Role" />
-          <ScalarProperty Name="E_BloodGroup" ColumnName="E_BloodGroup" />
-          <ScalarProperty Name="E_BankName" ColumnName="E_BankName" />
-          <ScalarProperty Name="E_AccountNo" ColumnName="E_AccountNo" />
-          <ScalarProperty Name="E_Branch" ColumnName="E_Branch" />
-          <ScalarProperty Name="E_IFC_Code" ColumnName="E_IFC_Code" />
-          <ScalarProperty Name="E_PF_Account" ColumnName="E_PF_Account" />
-          <ScalarProperty Name="E_PAN_No" ColumnName="E_PAN_No" />
-          <ScalarProperty Name="E_Aadhar_no" ColumnName="E_Aadhar_no" />
-          <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
-          <ScalarProperty Name="E_PF" ColumnName="E_PF" />
-          <ScalarProperty Name="E_PT" ColumnName="E_PT" />
-          <ScalarProperty Name="E_ESI" ColumnName="E_ESI" />
-          <ScalarProperty Name="E_PF_Apply" ColumnName="E_PF_Apply" />
-          <ScalarProperty Name="E_PT_Apply" ColumnName="E_PT_Apply" />
-          <ScalarProperty Name="E_ESI_Apply" ColumnName="E_ESI_Apply" />
-          <ScalarProperty Name="E_Photo" ColumnName="E_Photo" />
-          <ScalarProperty Name="E_Is_Active" ColumnName="E_Is_Active" />
-          <ScalarProperty Name="E_Is_Delete" ColumnName="E_Is_Delete" />
-          <ScalarProperty Name="E_Created_By" ColumnName="E_Created_By" />
-          <ScalarProperty Name="E_Created_On" ColumnName="E_Created_On" />
-          <ScalarProperty Name="E_Updated_By" ColumnName="E_Updated_By" />
+          <ScalarProperty Name="E_PersonalMailId" ColumnName="E_PersonalMailId" />
+          <ScalarProperty Name="E_Reason" ColumnName="E_Reason" />
+          <ScalarProperty Name="E_AttritionType" ColumnName="E_AttritionType" />
+          <ScalarProperty Name="E_ReportingManager" ColumnName="E_ReportingManager" />
           <ScalarProperty Name="E_Updated_On" ColumnName="E_Updated_On" />
+          <ScalarProperty Name="E_Updated_By" ColumnName="E_Updated_By" />
+          <ScalarProperty Name="E_Created_On" ColumnName="E_Created_On" />
+          <ScalarProperty Name="E_Created_By" ColumnName="E_Created_By" />
+          <ScalarProperty Name="E_Is_Delete" ColumnName="E_Is_Delete" />
+          <ScalarProperty Name="E_Is_Active" ColumnName="E_Is_Active" />
+          <ScalarProperty Name="E_Photo" ColumnName="E_Photo" />
+          <ScalarProperty Name="E_ESI_Apply" ColumnName="E_ESI_Apply" />
+          <ScalarProperty Name="E_PT_Apply" ColumnName="E_PT_Apply" />
+          <ScalarProperty Name="E_PF_Apply" ColumnName="E_PF_Apply" />
+          <ScalarProperty Name="E_ESI" ColumnName="E_ESI" />
+          <ScalarProperty Name="E_PT" ColumnName="E_PT" />
+          <ScalarProperty Name="E_PF" ColumnName="E_PF" />
+          <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
+          <ScalarProperty Name="E_Aadhar_no" ColumnName="E_Aadhar_no" />
+          <ScalarProperty Name="E_PAN_No" ColumnName="E_PAN_No" />
+          <ScalarProperty Name="E_PF_Account" ColumnName="E_PF_Account" />
+          <ScalarProperty Name="E_IFC_Code" ColumnName="E_IFC_Code" />
+          <ScalarProperty Name="E_Branch" ColumnName="E_Branch" />
+          <ScalarProperty Name="E_AccountNo" ColumnName="E_AccountNo" />
+          <ScalarProperty Name="E_BankName" ColumnName="E_BankName" />
+          <ScalarProperty Name="E_BloodGroup" ColumnName="E_BloodGroup" />
+          <ScalarProperty Name="E_Role" ColumnName="E_Role" />
+          <ScalarProperty Name="E_ExitDate" ColumnName="E_ExitDate" />
+          <ScalarProperty Name="E_JoinDate" ColumnName="E_JoinDate" />
+          <ScalarProperty Name="E_OfferDate" ColumnName="E_OfferDate" />
+          <ScalarProperty Name="E_Location" ColumnName="E_Location" />
+          <ScalarProperty Name="E_Designation" ColumnName="E_Designation" />
+          <ScalarProperty Name="E_Department" ColumnName="E_Department" />
+          <ScalarProperty Name="E_Company_Name" ColumnName="E_Company_Name" />
+          <ScalarProperty Name="E_Etype" ColumnName="E_Etype" />
+          <ScalarProperty Name="E_Postal" ColumnName="E_Postal" />
+          <ScalarProperty Name="E_CAddress" ColumnName="E_CAddress" />
+          <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+          <ScalarProperty Name="E_Password" ColumnName="E_Password" />
+          <ScalarProperty Name="E_UserName" ColumnName="E_UserName" />
+          <ScalarProperty Name="E_EEmergencyContNo" ColumnName="E_EEmergencyContNo" />
+          <ScalarProperty Name="E_ContNo" ColumnName="E_ContNo" />
+          <ScalarProperty Name="E_DOB" ColumnName="E_DOB" />
+          <ScalarProperty Name="E_Email" ColumnName="E_Email" />
+          <ScalarProperty Name="E_Gender" ColumnName="E_Gender" />
+          <ScalarProperty Name="E_Fullname" ColumnName="E_Fullname" />
+          <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+          <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordExpiry_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.PasswordExpiry_Master">
+        <MappingFragment StoreEntitySet="PasswordExpiry_Master">
+          <ScalarProperty Name="ExpirtyDate" ColumnName="ExpirtyDate" />
+          <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+          <ScalarProperty Name="Employeecode" ColumnName="Employeecode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appraisal_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.Appraisal_Master">
+        <MappingFragment StoreEntitySet="Appraisal_Master">
+          <ScalarProperty Name="rm_date" ColumnName="rm_date" />
+          <ScalarProperty Name="rm_status" ColumnName="rm_status" />
+          <ScalarProperty Name="emp_date" ColumnName="emp_date" />
+          <ScalarProperty Name="emp_status" ColumnName="emp_status" />
+          <ScalarProperty Name="expiredon" ColumnName="expiredon" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="rm_empCode" ColumnName="rm_empCode" />
+          <ScalarProperty Name="empCode" ColumnName="empCode" />
+          <ScalarProperty Name="paId" ColumnName="paId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Review_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.Employee_Review_Master">
+        <MappingFragment StoreEntitySet="Employee_Review_Master">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+          <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+          <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+          <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+          <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+          <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+          <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RM_Review_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.RM_Review_Master">
+        <MappingFragment StoreEntitySet="RM_Review_Master">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+          <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+          <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+          <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+          <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+          <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+          <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

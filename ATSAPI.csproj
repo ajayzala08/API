@@ -165,6 +165,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>API.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Appraisal_Master.cs">
+      <DependentUpon>API.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -207,13 +210,16 @@
       <DependentUpon>API.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ActivityMasterController.cs" />
+    <Compile Include="Controllers\AppraisalMasterController.cs" />
     <Compile Include="Controllers\Attendance_MasterController.cs" />
     <Compile Include="Controllers\BDListController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\Client_MasterController.cs" />
     <Compile Include="Controllers\CriticalRequirementController.cs" />
     <Compile Include="Controllers\DailyTargetController.cs" />
     <Compile Include="Controllers\DateWiseCountReportMasterController.cs" />
     <Compile Include="Controllers\DatewiseTeamLeadCountController.cs" />
+    <Compile Include="Controllers\EmployeeReviewController.cs" />
     <Compile Include="Controllers\GenerateJobCodeController.cs" />
     <Compile Include="Controllers\GetStartListController.cs" />
     <Compile Include="Controllers\HolidayMasterController.cs" />
@@ -226,9 +232,12 @@
     <Compile Include="Controllers\OfferListController.cs" />
     <Compile Include="Controllers\OfferMasterController.cs" />
     <Compile Include="Controllers\Recruiter_MstController.cs" />
+    <Compile Include="Controllers\ReportingManagerController.cs" />
     <Compile Include="Controllers\RequirementProgressReportController.cs" />
+    <Compile Include="Controllers\RequirementUploadController.cs" />
     <Compile Include="Controllers\ResumeMasterController.cs" />
     <Compile Include="Controllers\RevenueReportDateWiseController.cs" />
+    <Compile Include="Controllers\RMAppraisalMasterController.cs" />
     <Compile Include="Controllers\SalesClientCallRecordMasterController.cs" />
     <Compile Include="Controllers\SalesClientMasterController.cs" />
     <Compile Include="Controllers\SalesMonthlyReportController.cs" />
@@ -250,15 +259,24 @@
     <Compile Include="Controllers\TodayReportController.cs" />
     <Compile Include="Controllers\TodaysInterviewController.cs" />
     <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="Controllers\UploadSalarySheetController.cs" />
     <Compile Include="Controllers\UserRole_MasterController.cs" />
+    <Compile Include="Controllers\UserUploadController.cs" />
+    <Compile Include="Employee_Review_Master.cs">
+      <DependentUpon>API.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppraisalModel.cs" />
+    <Compile Include="Models\AppraisalViewModel.cs" />
     <Compile Include="Models\AttendanceMasterModel.cs" />
     <Compile Include="Models\AttendanceMasterViewModel.cs" />
     <Compile Include="Models\CountModel.cs" />
     <Compile Include="Models\DailyTargetModel.cs" />
+    <Compile Include="Models\empployeeReviewModel.cs" />
     <Compile Include="Models\InterviewModel.cs" />
+    <Compile Include="Models\LoginResponseModel.cs" />
     <Compile Include="Models\MonthModel.cs" />
     <Compile Include="Models\OfferModel.cs" />
     <Compile Include="Models\ResponseModel.cs" />
@@ -297,6 +315,7 @@
     <Compile Include="Models\RequirementModel.cs" />
     <Compile Include="Models\ResumeModel.cs" />
     <Compile Include="Models\ResumeUploadModel.cs" />
+    <Compile Include="Models\RMViewModel.cs" />
     <Compile Include="Models\SalesClientCallModel.cs" />
     <Compile Include="Models\SalesClientModel.cs" />
     <Compile Include="Models\SalesClientViewModel.cs" />
@@ -321,6 +340,9 @@
     <Compile Include="Offer_Master.cs">
       <DependentUpon>API.tt</DependentUpon>
     </Compile>
+    <Compile Include="PasswordExpiry_Master.cs">
+      <DependentUpon>API.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recruiter_SalarySlip_Master.cs">
       <DependentUpon>API.tt</DependentUpon>
@@ -332,6 +354,9 @@
       <DependentUpon>API.tt</DependentUpon>
     </Compile>
     <Compile Include="Reyna_SalarySlip_Master.cs">
+      <DependentUpon>API.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RM_Review_Master.cs">
       <DependentUpon>API.tt</DependentUpon>
     </Compile>
     <Compile Include="Role_Master.cs">
@@ -406,6 +431,8 @@
     <Content Include="API.edmx.diagram">
       <DependentUpon>API.edmx</DependentUpon>
     </Content>
+    <Content Include="ResumeDirectory\Ajay Zala.docx" />
+    <Content Include="ResumeDirectory\Closing Block- Mahesh Kodchawadkar.docx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

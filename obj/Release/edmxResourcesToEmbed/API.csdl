@@ -448,6 +448,30 @@
     <Property Name="Activity" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ActivityOn" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
+  <EntityContainer Name="ATS2019_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" />
+    <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" />
+    <EntitySet Name="Client_Master" EntityType="Self.Client_Master" />
+    <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" />
+    <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" />
+    <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" />
+    <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" />
+    <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" />
+    <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" />
+    <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" />
+    <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" />
+    <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" />
+    <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" />
+    <EntitySet Name="Role_Master" EntityType="Self.Role_Master" />
+    <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" />
+    <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" />
+    <EntitySet Name="SalesClientwiseMonthlyRevenue_Master" EntityType="Self.SalesClientwiseMonthlyRevenue_Master" />
+    <EntitySet Name="SalesMonthlyReport_Master" EntityType="Self.SalesMonthlyReport_Master" />
+    <EntitySet Name="Team_Master" EntityType="Self.Team_Master" />
+    <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" />
+    <EntitySet Name="User_Master" EntityType="ATS2019_dbModel.User_Master" />
+    <EntitySet Name="PasswordExpiry_Master" EntityType="ATS2019_dbModel.PasswordExpiry_Master" />
+  </EntityContainer>
   <EntityType Name="User_Master">
     <Key>
       <PropertyRef Name="E_Id" />
@@ -496,28 +520,17 @@
     <Property Name="E_Created_On" Type="DateTime" Precision="3" />
     <Property Name="E_Updated_By" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="E_Updated_On" Type="DateTime" Precision="3" />
+    <Property Name="E_ReportingManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="E_AttritionType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="E_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="E_PersonalMailId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="ATS2019_dbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" />
-    <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" />
-    <EntitySet Name="Client_Master" EntityType="Self.Client_Master" />
-    <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" />
-    <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" />
-    <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" />
-    <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" />
-    <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" />
-    <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" />
-    <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" />
-    <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" />
-    <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" />
-    <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" />
-    <EntitySet Name="Role_Master" EntityType="Self.Role_Master" />
-    <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" />
-    <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" />
-    <EntitySet Name="SalesClientwiseMonthlyRevenue_Master" EntityType="Self.SalesClientwiseMonthlyRevenue_Master" />
-    <EntitySet Name="SalesMonthlyReport_Master" EntityType="Self.SalesMonthlyReport_Master" />
-    <EntitySet Name="Team_Master" EntityType="Self.Team_Master" />
-    <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" />
-    <EntitySet Name="User_Master" EntityType="Self.User_Master" />
-  </EntityContainer>
+  <EntityType Name="PasswordExpiry_Master">
+    <Key>
+      <PropertyRef Name="Employeecode" />
+    </Key>
+    <Property Name="Employeecode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpirtyDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

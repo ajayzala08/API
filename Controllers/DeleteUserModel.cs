@@ -9,6 +9,8 @@ namespace ATSAPI.Controllers
     {
         public string ecode { get; set; }
         public DateTime exitdt { get; set; }
-        
+        public string attritiontype { get; set; }
+        public string reason { get; set; }
+
     }
 }

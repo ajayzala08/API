@@ -4,7 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ATS2019_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ATS2019_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appraisal_Master">
+          <Key>
+            <PropertyRef Name="paId" />
+          </Key>
+          <Property Name="paId" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empCode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rm_empCode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="period" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="createdon" Type="datetime" Nullable="false" />
+          <Property Name="expiredon" Type="datetime" Nullable="false" />
+          <Property Name="emp_status" Type="varchar" MaxLength="20" />
+          <Property Name="emp_date" Type="datetime" />
+          <Property Name="rm_status" Type="varchar" MaxLength="20" />
+          <Property Name="rm_date" Type="datetime" />
+        </EntityType>
         <EntityType Name="Arche_Resume_Master">
           <Key>
             <PropertyRef Name="AR_Id" />
@@ -69,6 +84,22 @@
           <Property Name="DT_Target" Type="int" Nullable="false" />
           <Property Name="DT_Achived" Type="int" Nullable="false" />
           <Property Name="DT_CreateOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Employee_Review_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="qualityofworkntaskcompletion" Type="int" />
+          <Property Name="goalsntargetachievement" Type="int" />
+          <Property Name="writtennverbalcommunicationskills" Type="int" />
+          <Property Name="initiativenmotivation" Type="int" />
+          <Property Name="teamworknleadershipskills" Type="int" />
+          <Property Name="abilitytoproblemsolve" Type="int" />
+          <Property Name="attendancenregualrization" Type="int" />
+          <Property Name="total" Type="int" />
+          <Property Name="comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="HolidayList_Master">
           <Key>
@@ -189,6 +220,14 @@
           <Property Name="O_Admin_Status" Type="nvarchar" MaxLength="10" />
           <Property Name="O_Admin_Date" Type="datetime" />
           <Property Name="O_IsActive" Type="int" />
+        </EntityType>
+        <EntityType Name="PasswordExpiry_Master">
+          <Key>
+            <PropertyRef Name="Employeecode" />
+          </Key>
+          <Property Name="Employeecode" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LastChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpirtyDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Recruiter_SalarySlip_Master">
           <Key>
@@ -353,6 +392,22 @@
           <Property Name="Salary_Month" Type="nvarchar" MaxLength="50" />
           <Property Name="Salary_Year" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="RM_Review_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="qualityofworkntaskcompletion" Type="int" />
+          <Property Name="goalsntargetachievement" Type="int" />
+          <Property Name="writtennverbalcommunicationskills" Type="int" />
+          <Property Name="initiativenmotivation" Type="int" />
+          <Property Name="teamworknleadershipskills" Type="int" />
+          <Property Name="abilitytoproblemsolve" Type="int" />
+          <Property Name="attendancenregualrization" Type="int" />
+          <Property Name="total" Type="int" />
+          <Property Name="comment" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Role_Master">
           <Key>
             <PropertyRef Name="R_id" />
@@ -501,21 +556,29 @@
           <Property Name="E_Created_On" Type="datetime" />
           <Property Name="E_Updated_By" Type="nvarchar" MaxLength="1000" />
           <Property Name="E_Updated_On" Type="datetime" />
+          <Property Name="E_ReportingManager" Type="varchar(max)" />
+          <Property Name="E_AttritionType" Type="varchar" MaxLength="500" />
+          <Property Name="E_Reason" Type="varchar" MaxLength="500" />
+          <Property Name="E_PersonalMailId" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="ATS2019_dbModelStoreContainer">
+          <EntitySet Name="Appraisal_Master" EntityType="Self.Appraisal_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client_Master" EntityType="Self.Client_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee_Review_Master" EntityType="Self.Employee_Review_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordExpiry_Master" EntityType="Self.PasswordExpiry_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RM_Review_Master" EntityType="Self.RM_Review_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role_Master" EntityType="Self.Role_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" Schema="dbo" store:Type="Tables" />
@@ -525,8 +588,7 @@
           <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Master" EntityType="Self.User_Master" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ATS2019_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -978,6 +1040,33 @@
           <Property Name="Activity" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ActivityOn" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityContainer Name="ATS2019_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" />
+          <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" />
+          <EntitySet Name="Client_Master" EntityType="Self.Client_Master" />
+          <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" />
+          <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" />
+          <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" />
+          <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" />
+          <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" />
+          <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" />
+          <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" />
+          <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" />
+          <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" />
+          <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" />
+          <EntitySet Name="Role_Master" EntityType="Self.Role_Master" />
+          <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" />
+          <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" />
+          <EntitySet Name="SalesClientwiseMonthlyRevenue_Master" EntityType="Self.SalesClientwiseMonthlyRevenue_Master" />
+          <EntitySet Name="SalesMonthlyReport_Master" EntityType="Self.SalesMonthlyReport_Master" />
+          <EntitySet Name="Team_Master" EntityType="Self.Team_Master" />
+          <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" />
+          <EntitySet Name="User_Master" EntityType="ATS2019_dbModel.User_Master" />
+          <EntitySet Name="PasswordExpiry_Master" EntityType="ATS2019_dbModel.PasswordExpiry_Master" />
+          <EntitySet Name="Appraisal_Master" EntityType="ATS2019_dbModel.Appraisal_Master" />
+          <EntitySet Name="Employee_Review_Master" EntityType="ATS2019_dbModel.Employee_Review_Master" />
+          <EntitySet Name="RM_Review_Master" EntityType="ATS2019_dbModel.RM_Review_Master" />
+        </EntityContainer>
         <EntityType Name="User_Master">
           <Key>
             <PropertyRef Name="E_Id" />
@@ -1026,30 +1115,66 @@
           <Property Name="E_Created_On" Type="DateTime" Precision="3" />
           <Property Name="E_Updated_By" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="E_Updated_On" Type="DateTime" Precision="3" />
+          <Property Name="E_ReportingManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="E_AttritionType" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="E_Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="E_PersonalMailId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ATS2019_dbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Arche_Resume_Master" EntityType="Self.Arche_Resume_Master" />
-          <EntitySet Name="Attendance_Master" EntityType="Self.Attendance_Master" />
-          <EntitySet Name="Client_Master" EntityType="Self.Client_Master" />
-          <EntitySet Name="DailyTarget_Master" EntityType="Self.DailyTarget_Master" />
-          <EntitySet Name="HolidayList_Master" EntityType="Self.HolidayList_Master" />
-          <EntitySet Name="Interview_Master" EntityType="Self.Interview_Master" />
-          <EntitySet Name="Leave_Master" EntityType="Self.Leave_Master" />
-          <EntitySet Name="NewClient_Master" EntityType="Self.NewClient_Master" />
-          <EntitySet Name="Offer_Master" EntityType="Self.Offer_Master" />
-          <EntitySet Name="Recruiter_SalarySlip_Master" EntityType="Self.Recruiter_SalarySlip_Master" />
-          <EntitySet Name="Requirement_Master" EntityType="Self.Requirement_Master" />
-          <EntitySet Name="Resume_Master" EntityType="Self.Resume_Master" />
-          <EntitySet Name="Reyna_SalarySlip_Master" EntityType="Self.Reyna_SalarySlip_Master" />
-          <EntitySet Name="Role_Master" EntityType="Self.Role_Master" />
-          <EntitySet Name="SalesClient_Master" EntityType="Self.SalesClient_Master" />
-          <EntitySet Name="SalesClientCall_Master" EntityType="Self.SalesClientCall_Master" />
-          <EntitySet Name="SalesClientwiseMonthlyRevenue_Master" EntityType="Self.SalesClientwiseMonthlyRevenue_Master" />
-          <EntitySet Name="SalesMonthlyReport_Master" EntityType="Self.SalesMonthlyReport_Master" />
-          <EntitySet Name="Team_Master" EntityType="Self.Team_Master" />
-          <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" />
-          <EntitySet Name="User_Master" EntityType="Self.User_Master" />
-        </EntityContainer>
+        <EntityType Name="PasswordExpiry_Master">
+          <Key>
+            <PropertyRef Name="Employeecode" />
+          </Key>
+          <Property Name="Employeecode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpirtyDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Appraisal_Master">
+          <Key>
+            <PropertyRef Name="paId" />
+          </Key>
+          <Property Name="paId" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empCode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="rm_empCode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="period" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expiredon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="emp_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_date" Type="DateTime" Precision="3" />
+          <Property Name="rm_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rm_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Employee_Review_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="qualityofworkntaskcompletion" Type="Int32" />
+          <Property Name="goalsntargetachievement" Type="Int32" />
+          <Property Name="writtennverbalcommunicationskills" Type="Int32" />
+          <Property Name="initiativenmotivation" Type="Int32" />
+          <Property Name="teamworknleadershipskills" Type="Int32" />
+          <Property Name="abilitytoproblemsolve" Type="Int32" />
+          <Property Name="attendancenregualrization" Type="Int32" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RM_Review_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="qualityofworkntaskcompletion" Type="Int32" />
+          <Property Name="goalsntargetachievement" Type="Int32" />
+          <Property Name="writtennverbalcommunicationskills" Type="Int32" />
+          <Property Name="initiativenmotivation" Type="Int32" />
+          <Property Name="teamworknleadershipskills" Type="Int32" />
+          <Property Name="abilitytoproblemsolve" Type="Int32" />
+          <Property Name="attendancenregualrization" Type="Int32" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1527,50 +1652,113 @@
           <EntitySetMapping Name="User_Master">
             <EntityTypeMapping TypeName="ATS2019_dbModel.User_Master">
               <MappingFragment StoreEntitySet="User_Master">
-                <ScalarProperty Name="E_Id" ColumnName="E_Id" />
-                <ScalarProperty Name="E_Code" ColumnName="E_Code" />
-                <ScalarProperty Name="E_Fullname" ColumnName="E_Fullname" />
-                <ScalarProperty Name="E_Gender" ColumnName="E_Gender" />
-                <ScalarProperty Name="E_Email" ColumnName="E_Email" />
-                <ScalarProperty Name="E_DOB" ColumnName="E_DOB" />
-                <ScalarProperty Name="E_ContNo" ColumnName="E_ContNo" />
-                <ScalarProperty Name="E_EEmergencyContNo" ColumnName="E_EEmergencyContNo" />
-                <ScalarProperty Name="E_UserName" ColumnName="E_UserName" />
-                <ScalarProperty Name="E_Password" ColumnName="E_Password" />
-                <ScalarProperty Name="E_Address" ColumnName="E_Address" />
-                <ScalarProperty Name="E_CAddress" ColumnName="E_CAddress" />
-                <ScalarProperty Name="E_Postal" ColumnName="E_Postal" />
-                <ScalarProperty Name="E_Etype" ColumnName="E_Etype" />
-                <ScalarProperty Name="E_Company_Name" ColumnName="E_Company_Name" />
-                <ScalarProperty Name="E_Department" ColumnName="E_Department" />
-                <ScalarProperty Name="E_Designation" ColumnName="E_Designation" />
-                <ScalarProperty Name="E_Location" ColumnName="E_Location" />
-                <ScalarProperty Name="E_OfferDate" ColumnName="E_OfferDate" />
-                <ScalarProperty Name="E_JoinDate" ColumnName="E_JoinDate" />
-                <ScalarProperty Name="E_ExitDate" ColumnName="E_ExitDate" />
-                <ScalarProperty Name="E_Role" ColumnName="E_Role" />
-                <ScalarProperty Name="E_BloodGroup" ColumnName="E_BloodGroup" />
-                <ScalarProperty Name="E_BankName" ColumnName="E_BankName" />
-                <ScalarProperty Name="E_AccountNo" ColumnName="E_AccountNo" />
-                <ScalarProperty Name="E_Branch" ColumnName="E_Branch" />
-                <ScalarProperty Name="E_IFC_Code" ColumnName="E_IFC_Code" />
-                <ScalarProperty Name="E_PF_Account" ColumnName="E_PF_Account" />
-                <ScalarProperty Name="E_PAN_No" ColumnName="E_PAN_No" />
-                <ScalarProperty Name="E_Aadhar_no" ColumnName="E_Aadhar_no" />
-                <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
-                <ScalarProperty Name="E_PF" ColumnName="E_PF" />
-                <ScalarProperty Name="E_PT" ColumnName="E_PT" />
-                <ScalarProperty Name="E_ESI" ColumnName="E_ESI" />
-                <ScalarProperty Name="E_PF_Apply" ColumnName="E_PF_Apply" />
-                <ScalarProperty Name="E_PT_Apply" ColumnName="E_PT_Apply" />
-                <ScalarProperty Name="E_ESI_Apply" ColumnName="E_ESI_Apply" />
-                <ScalarProperty Name="E_Photo" ColumnName="E_Photo" />
-                <ScalarProperty Name="E_Is_Active" ColumnName="E_Is_Active" />
-                <ScalarProperty Name="E_Is_Delete" ColumnName="E_Is_Delete" />
-                <ScalarProperty Name="E_Created_By" ColumnName="E_Created_By" />
-                <ScalarProperty Name="E_Created_On" ColumnName="E_Created_On" />
-                <ScalarProperty Name="E_Updated_By" ColumnName="E_Updated_By" />
+                <ScalarProperty Name="E_PersonalMailId" ColumnName="E_PersonalMailId" />
+                <ScalarProperty Name="E_Reason" ColumnName="E_Reason" />
+                <ScalarProperty Name="E_AttritionType" ColumnName="E_AttritionType" />
+                <ScalarProperty Name="E_ReportingManager" ColumnName="E_ReportingManager" />
                 <ScalarProperty Name="E_Updated_On" ColumnName="E_Updated_On" />
+                <ScalarProperty Name="E_Updated_By" ColumnName="E_Updated_By" />
+                <ScalarProperty Name="E_Created_On" ColumnName="E_Created_On" />
+                <ScalarProperty Name="E_Created_By" ColumnName="E_Created_By" />
+                <ScalarProperty Name="E_Is_Delete" ColumnName="E_Is_Delete" />
+                <ScalarProperty Name="E_Is_Active" ColumnName="E_Is_Active" />
+                <ScalarProperty Name="E_Photo" ColumnName="E_Photo" />
+                <ScalarProperty Name="E_ESI_Apply" ColumnName="E_ESI_Apply" />
+                <ScalarProperty Name="E_PT_Apply" ColumnName="E_PT_Apply" />
+                <ScalarProperty Name="E_PF_Apply" ColumnName="E_PF_Apply" />
+                <ScalarProperty Name="E_ESI" ColumnName="E_ESI" />
+                <ScalarProperty Name="E_PT" ColumnName="E_PT" />
+                <ScalarProperty Name="E_PF" ColumnName="E_PF" />
+                <ScalarProperty Name="E_Salary" ColumnName="E_Salary" />
+                <ScalarProperty Name="E_Aadhar_no" ColumnName="E_Aadhar_no" />
+                <ScalarProperty Name="E_PAN_No" ColumnName="E_PAN_No" />
+                <ScalarProperty Name="E_PF_Account" ColumnName="E_PF_Account" />
+                <ScalarProperty Name="E_IFC_Code" ColumnName="E_IFC_Code" />
+                <ScalarProperty Name="E_Branch" ColumnName="E_Branch" />
+                <ScalarProperty Name="E_AccountNo" ColumnName="E_AccountNo" />
+                <ScalarProperty Name="E_BankName" ColumnName="E_BankName" />
+                <ScalarProperty Name="E_BloodGroup" ColumnName="E_BloodGroup" />
+                <ScalarProperty Name="E_Role" ColumnName="E_Role" />
+                <ScalarProperty Name="E_ExitDate" ColumnName="E_ExitDate" />
+                <ScalarProperty Name="E_JoinDate" ColumnName="E_JoinDate" />
+                <ScalarProperty Name="E_OfferDate" ColumnName="E_OfferDate" />
+                <ScalarProperty Name="E_Location" ColumnName="E_Location" />
+                <ScalarProperty Name="E_Designation" ColumnName="E_Designation" />
+                <ScalarProperty Name="E_Department" ColumnName="E_Department" />
+                <ScalarProperty Name="E_Company_Name" ColumnName="E_Company_Name" />
+                <ScalarProperty Name="E_Etype" ColumnName="E_Etype" />
+                <ScalarProperty Name="E_Postal" ColumnName="E_Postal" />
+                <ScalarProperty Name="E_CAddress" ColumnName="E_CAddress" />
+                <ScalarProperty Name="E_Address" ColumnName="E_Address" />
+                <ScalarProperty Name="E_Password" ColumnName="E_Password" />
+                <ScalarProperty Name="E_UserName" ColumnName="E_UserName" />
+                <ScalarProperty Name="E_EEmergencyContNo" ColumnName="E_EEmergencyContNo" />
+                <ScalarProperty Name="E_ContNo" ColumnName="E_ContNo" />
+                <ScalarProperty Name="E_DOB" ColumnName="E_DOB" />
+                <ScalarProperty Name="E_Email" ColumnName="E_Email" />
+                <ScalarProperty Name="E_Gender" ColumnName="E_Gender" />
+                <ScalarProperty Name="E_Fullname" ColumnName="E_Fullname" />
+                <ScalarProperty Name="E_Code" ColumnName="E_Code" />
+                <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordExpiry_Master">
+            <EntityTypeMapping TypeName="ATS2019_dbModel.PasswordExpiry_Master">
+              <MappingFragment StoreEntitySet="PasswordExpiry_Master">
+                <ScalarProperty Name="ExpirtyDate" ColumnName="ExpirtyDate" />
+                <ScalarProperty Name="LastChangeDate" ColumnName="LastChangeDate" />
+                <ScalarProperty Name="Employeecode" ColumnName="Employeecode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appraisal_Master">
+            <EntityTypeMapping TypeName="ATS2019_dbModel.Appraisal_Master">
+              <MappingFragment StoreEntitySet="Appraisal_Master">
+                <ScalarProperty Name="rm_date" ColumnName="rm_date" />
+                <ScalarProperty Name="rm_status" ColumnName="rm_status" />
+                <ScalarProperty Name="emp_date" ColumnName="emp_date" />
+                <ScalarProperty Name="emp_status" ColumnName="emp_status" />
+                <ScalarProperty Name="expiredon" ColumnName="expiredon" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="rm_empCode" ColumnName="rm_empCode" />
+                <ScalarProperty Name="empCode" ColumnName="empCode" />
+                <ScalarProperty Name="paId" ColumnName="paId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Review_Master">
+            <EntityTypeMapping TypeName="ATS2019_dbModel.Employee_Review_Master">
+              <MappingFragment StoreEntitySet="Employee_Review_Master">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+                <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+                <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+                <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+                <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+                <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+                <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RM_Review_Master">
+            <EntityTypeMapping TypeName="ATS2019_dbModel.RM_Review_Master">
+              <MappingFragment StoreEntitySet="RM_Review_Master">
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+                <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+                <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+                <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+                <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+                <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+                <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

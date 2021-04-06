@@ -63,7 +63,12 @@ namespace ATSAPI.Controllers
                     EESIApply = p.E_ESI_Apply.Value == 1 ? true : false,
                     Ephoto = p.E_Photo,
                     eactive =(Int32)p.E_Is_Active,
-                edelete = (Int32)p.E_Is_Delete
+                    edelete = (Int32)p.E_Is_Delete,
+                    reportingmanager = p.E_ReportingManager,
+                    attritiontype = p.E_AttritionType,
+                    reson = p.E_Reason,
+                    personalmailid = p.E_PersonalMailId,
+                    username= p.E_Created_By
             }).ToList();
             if (umlist.Count > 0)
             {
@@ -138,7 +143,13 @@ namespace ATSAPI.Controllers
                     EESIApply = query.E_ESI_Apply.Value == 1 ? true : false,
                     Ephoto = query.E_Photo,
                     eactive = (Int32)query.E_Is_Active,
-                    edelete = (Int32)query.E_Is_Delete
+                    edelete = (Int32)query.E_Is_Delete,
+                    reportingmanager= query.E_ReportingManager,
+                    attritiontype= query.E_AttritionType,
+                    reson = query.E_Reason,
+                    personalmailid = query.E_PersonalMailId,
+                    username = query.E_Created_By
+                    
                 };
                 responseModel.Data = userModel;
                 responseModel.Message = "Record Found";
@@ -202,9 +213,11 @@ namespace ATSAPI.Controllers
                     exists.E_PF_Apply = umm.EPFApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
                     exists.E_PT_Apply = umm.EPTApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
                     exists.E_ESI_Apply = umm.EESIApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
-                    //exists.E_Updated_By = "Username";
-                    exists.E_Created_On = System.DateTime.Now;
+                    exists.E_Updated_By = umm.username;
+                    exists.E_Updated_On = System.DateTime.Now;
                     exists.E_Photo = umm.Ephoto;
+                    exists.E_ReportingManager = umm.reportingmanager;
+                    exists.E_PersonalMailId = umm.personalmailid;
                     db.Entry(exists).State = EntityState.Modified;
                     db.SaveChanges();
                     responseModel.Message = "User Updated Successfully.";
@@ -278,11 +291,14 @@ namespace ATSAPI.Controllers
                     finduser.E_PF_Apply = umm.EPFApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
                     finduser.E_PT_Apply = umm.EPTApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
                     finduser.E_ESI_Apply = umm.EESIApply == true ? Convert.ToInt32("1") : Convert.ToInt32("0");
-                    //finduser.E_Updated_By = "Username";
+                    finduser.E_Created_By = umm.username;
                     finduser.E_Created_On = System.DateTime.Now;
                     finduser.E_Is_Active = 1;
                     finduser.E_Is_Delete = 0;
                     finduser.E_Photo = umm.Ephoto;
+                    finduser.E_ReportingManager = umm.reportingmanager;
+                    finduser.E_PersonalMailId = umm.personalmailid;
+
                     db.User_Master.Add(finduser);
                     var result = db.SaveChanges();
                     if (result > 0)
@@ -336,6 +352,8 @@ namespace ATSAPI.Controllers
                 user_Master.E_ExitDate = deleteUserModel.exitdt;
                 user_Master.E_Is_Active = 1;
                 user_Master.E_Is_Delete = 1;
+                user_Master.E_AttritionType = deleteUserModel.attritiontype;
+                user_Master.E_Reason = deleteUserModel.reason;
                 db.Entry(user_Master).State = EntityState.Modified;
                 var result = db.SaveChanges();
                 if (result > 0)

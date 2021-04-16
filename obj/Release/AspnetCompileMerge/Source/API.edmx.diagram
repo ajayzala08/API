@@ -27,6 +27,9 @@
         <EntityTypeShape EntityType="ATS2019_dbModel.User_Activity_Master" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ATS2019_dbModel.User_Master" Width="1.5" PointX="15.375" PointY="13.75" />
         <EntityTypeShape EntityType="ATS2019_dbModel.PasswordExpiry_Master" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ATS2019_dbModel.Appraisal_Master" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ATS2019_dbModel.Employee_Review_Master" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ATS2019_dbModel.RM_Review_Master" Width="1.5" PointX="7.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

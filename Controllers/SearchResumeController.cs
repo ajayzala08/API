@@ -84,5 +84,36 @@ namespace ATSAPI.Controllers
 
             }
         }
+
+        public ResponseModel POSTSearchResume(SearchResumeModel model)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                using (var db = new ATS2019_dbEntities())
+                {
+                    var resumelist = (from c in db.Resume_Master where c.R_Email.Contains(model.byemail) && c.R_Name.Contains(model.byname) && c.R_Cnt.Contains(model.bynumber) && c.R_Skills.Contains(model.byskill) select c).ToList();
+                    if (resumelist != null)
+                    {
+                        responseModel.Message = "Data Found";
+                        responseModel.Status = true;
+                        responseModel.Data = resumelist;
+                    }
+                    else
+                    {
+                        responseModel.Message = "Data Not Found";
+                        responseModel.Status = false;
+                        responseModel.Data = null;
+                    }
+                }
+                return responseModel;
+            }
+            catch (Exception ex) {
+                responseModel.Message = "Exception";
+                responseModel.Status = false;
+                responseModel.Data = null;
+                return responseModel;
+            }
+        }
     }
 }

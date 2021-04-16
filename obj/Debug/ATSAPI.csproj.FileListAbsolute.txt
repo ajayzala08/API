@@ -112,8 +112,8 @@ E:\Work From Home\ATSAPI\bin\System.Web.WebPages.xml
 E:\Work From Home\ATSAPI\bin\System.Web.WebPages.Deployment.xml
 E:\Work From Home\ATSAPI\bin\System.Web.WebPages.Razor.xml
 E:\Work From Home\ATSAPI\bin\Antlr3.Runtime.pdb
+E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csprojAssemblyReference.cache
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csproj.CoreCompileInputs.cache
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csproj.CopyComplete
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.dll
 E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.pdb
-E:\Work From Home\ATSAPI\obj\Debug\ATSAPI.csprojAssemblyReference.cache

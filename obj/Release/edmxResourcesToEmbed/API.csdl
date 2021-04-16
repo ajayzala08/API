@@ -471,6 +471,9 @@
     <EntitySet Name="User_Activity_Master" EntityType="Self.User_Activity_Master" />
     <EntitySet Name="User_Master" EntityType="ATS2019_dbModel.User_Master" />
     <EntitySet Name="PasswordExpiry_Master" EntityType="ATS2019_dbModel.PasswordExpiry_Master" />
+    <EntitySet Name="Appraisal_Master" EntityType="ATS2019_dbModel.Appraisal_Master" />
+    <EntitySet Name="Employee_Review_Master" EntityType="ATS2019_dbModel.Employee_Review_Master" />
+    <EntitySet Name="RM_Review_Master" EntityType="ATS2019_dbModel.RM_Review_Master" />
   </EntityContainer>
   <EntityType Name="User_Master">
     <Key>
@@ -532,5 +535,52 @@
     <Property Name="Employeecode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="LastChangeDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ExpirtyDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Appraisal_Master">
+    <Key>
+      <PropertyRef Name="paId" />
+    </Key>
+    <Property Name="paId" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empCode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="rm_empCode" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="period" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="createdon" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="expiredon" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="emp_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="emp_date" Type="DateTime" Precision="3" />
+    <Property Name="rm_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="rm_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Employee_Review_Master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="qualityofworkntaskcompletion" Type="Int32" />
+    <Property Name="goalsntargetachievement" Type="Int32" />
+    <Property Name="writtennverbalcommunicationskills" Type="Int32" />
+    <Property Name="initiativenmotivation" Type="Int32" />
+    <Property Name="teamworknleadershipskills" Type="Int32" />
+    <Property Name="abilitytoproblemsolve" Type="Int32" />
+    <Property Name="attendancenregualrization" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RM_Review_Master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paid" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="qualityofworkntaskcompletion" Type="Int32" />
+    <Property Name="goalsntargetachievement" Type="Int32" />
+    <Property Name="writtennverbalcommunicationskills" Type="Int32" />
+    <Property Name="initiativenmotivation" Type="Int32" />
+    <Property Name="teamworknleadershipskills" Type="Int32" />
+    <Property Name="abilitytoproblemsolve" Type="Int32" />
+    <Property Name="attendancenregualrization" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

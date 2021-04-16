@@ -71,7 +71,7 @@ namespace ATSAPI.Controllers
 
                 using (var db = new ATS2019_dbEntities())
                 {
-                    string un = JsonConvert.DeserializeObject<string>(username);
+                    string un = username; //JsonConvert.DeserializeObject<string>(username);
                     var findattenance = (from c in db.Attendance_Master where c.A_Name == un && EntityFunctions.TruncateTime(c.A_InTime) == EntityFunctions.TruncateTime(System.DateTime.Now) select c).FirstOrDefault();
                     //var findattenance = context.Attendance_Master.Where(c => (c.A_Name == User.Identity.Name) && (EntityFunctions.TruncateTime(Convert.ToDateTime(c.A_InTime)) == EntityFunctions.TruncateTime(System.DateTime.Now))).FirstOrDefault();
                     if (findattenance == null)

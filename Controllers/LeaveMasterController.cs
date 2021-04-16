@@ -18,61 +18,74 @@ namespace ATSAPI.Controllers
             ResponseModel responseModel = new ResponseModel();
             try
             {
-                using (var db = new ATS2019_dbEntities())
+                if (leaveModel.startdate <= leaveModel.enddate)
                 {
-                    var userroles = (from c in db.User_Master
-                                     where c.E_UserName == leaveModel.createby
-                                     join
-                                            d in db.Role_Master on c.E_Code equals d.R_ecode
-                                     select d.R_role).ToList();
+                    int noofdays = 0;
+                    TimeSpan t1 = leaveModel.enddate.Subtract(leaveModel.startdate);
+                    noofdays = t1.Days + Convert.ToInt32("1");
+                    using (var db = new ATS2019_dbEntities())
+                    {
+                        var userroles = (from c in db.User_Master
+                                         where c.E_UserName == leaveModel.createby
+                                         join
+                                                d in db.Role_Master on c.E_Code equals d.R_ecode
+                                         select d.R_role).ToList();
 
-                    Leave_Master master = new Leave_Master();
-                    master.L_Type = leaveModel.type;
-                    master.L_Noofdays = leaveModel.noofdays;
-                    master.L_Inwords = leaveModel.inwords;
-                    master.L_Reason = leaveModel.reason;
-                    master.L_StartDate = leaveModel.startdate;
-                    master.L_EndDate = leaveModel.enddate;
-                    master.L_CreateBy = leaveModel.createby;
-                    master.L_CreateOn = System.DateTime.Now;
-                    if (userroles.Contains("Team Lead"))
-                    {
-                        master.L_TL_Status = "Approve";
-                        master.L_TL_Datetime = System.DateTime.Now;
-                    }
-                    else
-                    {
-                        master.L_TL_Status = "Pending";
-                        master.L_TL_Datetime = System.DateTime.Now;
-                    }
+                        Leave_Master master = new Leave_Master();
+                        master.L_Type = leaveModel.type;
+                        master.L_Noofdays = noofdays;//leaveModel.noofdays;
+                        master.L_Inwords = leaveModel.inwords;
+                        master.L_Reason = leaveModel.reason;
+                        master.L_StartDate = leaveModel.startdate;
+                        master.L_EndDate = leaveModel.enddate;
+                        master.L_CreateBy = leaveModel.createby;
+                        master.L_CreateOn = System.DateTime.Now;
+                        if (userroles.Contains("Team Lead"))
+                        {
+                            master.L_TL_Status = "Approve";
+                            master.L_TL_Datetime = System.DateTime.Now;
+                        }
+                        else
+                        {
+                            master.L_TL_Status = "Pending";
+                            master.L_TL_Datetime = System.DateTime.Now;
+                        }
 
-                    if (userroles.Contains("Manager"))
-                    {
-                        master.L_M_Status = "Approve";
-                        master.L_M_Datetime = System.DateTime.Now;
-                    }
-                    else
-                    {
-                        master.L_M_Status = "Pending";
-                        master.L_M_Datetime = System.DateTime.Now;
-                    }
-                    master.L_Admin_Status = "Pending";
-                    master.L_Admin_Datetime = System.DateTime.Now;
-                    db.Leave_Master.Add(master);
-                    var result = db.SaveChanges();
-                    if (result > 0)
-                    {
-                        responseModel.Message = "Successfully Apply For Leave";
-                        responseModel.Data = null;
-                        responseModel.Status = true;
-                    }
-                    else
-                    {
-                        responseModel.Message = "Fail To Apply Leave";
-                        responseModel.Data = null;
-                        responseModel.Status = false;
-                    }
+                        if (userroles.Contains("Manager"))
+                        {
+                            master.L_M_Status = "Approve";
+                            master.L_M_Datetime = System.DateTime.Now;
+                        }
+                        else
+                        {
+                            master.L_M_Status = "Pending";
+                            master.L_M_Datetime = System.DateTime.Now;
+                        }
+                        master.L_Admin_Status = "Pending";
+                        master.L_Admin_Datetime = System.DateTime.Now;
+                        db.Leave_Master.Add(master);
+                        var result = db.SaveChanges();
+                        if (result > 0)
+                        {
+                            responseModel.Message = "Successfully Apply For Leave";
+                            responseModel.Data = null;
+                            responseModel.Status = true;
+                        }
+                        else
+                        {
+                            responseModel.Message = "Fail To Apply Leave";
+                            responseModel.Data = null;
+                            responseModel.Status = false;
+                        }
 
+                    }
+                    
+                }
+                else
+                {
+                    responseModel.Message = "Select Valid date";
+                    responseModel.Data = null;
+                    responseModel.Status = false;
                 }
                 return responseModel;
             }

@@ -329,5 +329,41 @@ namespace ATSAPI.Controllers
             }
 
         }
+
+        public ResponseModel GetResumeMaster(decimal jid, string username)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                using (var db = new ATS2019_dbEntities())
+                {
+                    var resumelist = (from c in db.Resume_Master where c.R_CreateBy==username
+                                      where c.R_Jid == jid
+                                      join
+                                          d in db.User_Master on c.R_CreateBy equals d.E_UserName 
+                                      select new { c, d }).ToList().OrderByDescending(m => m.c.R_CreateOn);
+                    if (resumelist.Count() > 0)
+                    {
+                        responseModel.Status = true;
+                        responseModel.Message = "Data Found";
+                        responseModel.Data = resumelist;
+                    }
+                    else
+                    {
+                        responseModel.Status = false;
+                        responseModel.Message = "Data Not Found";
+                        responseModel.Data = null;
+                    }
+                }
+
+                return responseModel;
+            } catch (Exception ex)
+            {
+                responseModel.Status = false;
+                responseModel.Message = "Exception";
+                responseModel.Data = null;
+                return responseModel;
+            }
+        }
     }
 }

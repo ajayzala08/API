@@ -222,6 +222,7 @@
     <Compile Include="Controllers\EmployeeReviewController.cs" />
     <Compile Include="Controllers\GenerateJobCodeController.cs" />
     <Compile Include="Controllers\GetStartListController.cs" />
+    <Compile Include="Controllers\GraphMasterController.cs" />
     <Compile Include="Controllers\HolidayMasterController.cs" />
     <Compile Include="Controllers\InterviewMasterController.cs" />
     <Compile Include="Controllers\LeaveMasterController.cs" />
@@ -258,10 +259,12 @@
     <Compile Include="Controllers\TobeJoinListController.cs" />
     <Compile Include="Controllers\TodayReportController.cs" />
     <Compile Include="Controllers\TodaysInterviewController.cs" />
+    <Compile Include="Controllers\UpdateRequirementStatusController.cs" />
     <Compile Include="Controllers\UploadFileController.cs" />
     <Compile Include="Controllers\UploadSalarySheetController.cs" />
     <Compile Include="Controllers\UserRole_MasterController.cs" />
     <Compile Include="Controllers\UserUploadController.cs" />
+    <Compile Include="Controllers\ViewRequirementSummaryController.cs" />
     <Compile Include="Employee_Review_Master.cs">
       <DependentUpon>API.tt</DependentUpon>
     </Compile>
@@ -275,6 +278,7 @@
     <Compile Include="Models\CountModel.cs" />
     <Compile Include="Models\DailyTargetModel.cs" />
     <Compile Include="Models\empployeeReviewModel.cs" />
+    <Compile Include="Models\GraphViewModel.cs" />
     <Compile Include="Models\InterviewModel.cs" />
     <Compile Include="Models\LoginResponseModel.cs" />
     <Compile Include="Models\MonthModel.cs" />
@@ -323,6 +327,7 @@
     <Compile Include="Models\SalesClientWiseMonthlyRevenueViewModel.cs" />
     <Compile Include="Models\SalesMonthlyReportModel.cs" />
     <Compile Include="Models\SalesMonthlyReportViewModel.cs" />
+    <Compile Include="Models\SearchResumeModel.cs" />
     <Compile Include="Models\SIOSModel.cs" />
     <Compile Include="Models\StartViewModel.cs" />
     <Compile Include="Models\SubmissionViewModel.cs" />

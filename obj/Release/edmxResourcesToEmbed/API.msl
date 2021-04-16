@@ -532,5 +532,55 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Appraisal_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.Appraisal_Master">
+        <MappingFragment StoreEntitySet="Appraisal_Master">
+          <ScalarProperty Name="rm_date" ColumnName="rm_date" />
+          <ScalarProperty Name="rm_status" ColumnName="rm_status" />
+          <ScalarProperty Name="emp_date" ColumnName="emp_date" />
+          <ScalarProperty Name="emp_status" ColumnName="emp_status" />
+          <ScalarProperty Name="expiredon" ColumnName="expiredon" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="rm_empCode" ColumnName="rm_empCode" />
+          <ScalarProperty Name="empCode" ColumnName="empCode" />
+          <ScalarProperty Name="paId" ColumnName="paId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Review_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.Employee_Review_Master">
+        <MappingFragment StoreEntitySet="Employee_Review_Master">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+          <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+          <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+          <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+          <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+          <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+          <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RM_Review_Master">
+      <EntityTypeMapping TypeName="ATS2019_dbModel.RM_Review_Master">
+        <MappingFragment StoreEntitySet="RM_Review_Master">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="attendancenregualrization" ColumnName="attendancenregualrization" />
+          <ScalarProperty Name="abilitytoproblemsolve" ColumnName="abilitytoproblemsolve" />
+          <ScalarProperty Name="teamworknleadershipskills" ColumnName="teamworknleadershipskills" />
+          <ScalarProperty Name="initiativenmotivation" ColumnName="initiativenmotivation" />
+          <ScalarProperty Name="writtennverbalcommunicationskills" ColumnName="writtennverbalcommunicationskills" />
+          <ScalarProperty Name="goalsntargetachievement" ColumnName="goalsntargetachievement" />
+          <ScalarProperty Name="qualityofworkntaskcompletion" ColumnName="qualityofworkntaskcompletion" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

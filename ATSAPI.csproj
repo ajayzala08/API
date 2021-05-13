@@ -237,6 +237,7 @@
     <Compile Include="Controllers\RequirementProgressReportController.cs" />
     <Compile Include="Controllers\RequirementUploadController.cs" />
     <Compile Include="Controllers\ResumeMasterController.cs" />
+    <Compile Include="Controllers\ResumeStatusController.cs" />
     <Compile Include="Controllers\RevenueReportDateWiseController.cs" />
     <Compile Include="Controllers\RMAppraisalMasterController.cs" />
     <Compile Include="Controllers\SalesClientCallRecordMasterController.cs" />

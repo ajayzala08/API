@@ -24,8 +24,8 @@ namespace ATSAPI.Controllers
         {
             ResponseModel responseModel = new ResponseModel();
             List<RequirementModel>
-            requirementModel = (from x in db.Requirement_Master where x.J_Id<=30
-                                 join y in db.Client_Master on x.J_Client_Id equals y.C_id where x.J_Is_Active==1 && x.J_Is_Delete==0 select new { x, y }).Select(x => new RequirementModel {
+            requirementModel = (from x in db.Requirement_Master
+                                join y in db.Client_Master on x.J_Client_Id equals y.C_id where x.J_Is_Active==1 && x.J_Is_Delete==0 select new { x, y }).Select(x => new RequirementModel {
                                      jid = x.x.J_Id,
                                      jobcode = x.x.J_Code,
                                      jclientid = x.x.J_Client_Id,
@@ -52,7 +52,7 @@ namespace ATSAPI.Controllers
                                      jcreatedby = x.x.J_CreatedBy,
                                      jcreatedon = x.x.J_CreatedOn.Value
 
-                                 }).ToList();
+                                 }).ToList().OrderByDescending(x=>x.jid).Take(50).ToList();
 
 
             //List<RequirementModel>

@@ -114,7 +114,7 @@ namespace ATSAPI.Controllers
                         cuser = x.C_Created_By,
                         cdate= (DateTime)x.C_Created_On
                         
-                    }).ToList();
+                    }).OrderByDescending(x=>x.cid).ToList();
                     if (clientModels.Count > 0)
                     {
                         responseModel.Message = "Record Found";

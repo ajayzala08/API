@@ -69,7 +69,7 @@ namespace ATSAPI.Controllers
                     reson = p.E_Reason,
                     personalmailid = p.E_PersonalMailId,
                     username= p.E_Created_By
-            }).ToList();
+            }).OrderByDescending(x=>x.ECode).ToList();
             if (umlist.Count > 0)
             {
                 responseModel.Message = "Record Found";
